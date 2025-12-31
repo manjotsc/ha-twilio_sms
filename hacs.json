@@ -1,0 +1,7 @@
+{
+  "name": "Twilio SMS",
+  "content_in_root": false,
+  "render_readme": true,
+  "country": ["AU", "US", "IE"],
+  "homeassistant": "2024.1.0"
+}

@@ -1,0 +1,48 @@
+send_message:
+  name: Send Message
+  description: Send an SMS or MMS message via Twilio. Supports Jinja2 templates.
+  fields:
+    target:
+      name: Target Numbers
+      description: Phone number(s) to send to (E.164 format). Supports Jinja2 templates.
+      required: true
+      example: "+15551234567"
+      selector:
+        text:
+          multiple: true
+    message:
+      name: Message
+      description: The message body. Supports Jinja2 templates (e.g., "Temperature is {{ states('sensor.temp') }}").
+      required: true
+      example: "Hello {{ user }}!"
+      selector:
+        text:
+          multiline: true
+    media_url:
+      name: Media URL
+      description: >
+        URL(s) for MMS media attachments. Twilio will fetch the media from these URLs, so they must be publicly accessible.
+
+        **External URLs:** Use any public URL (e.g., https://example.com/image.jpg).
+
+        **Local files:** Use /local/filename.jpg for files in your /config/www/ folder. These paths are auto-converted to your external Home Assistant URL.
+
+        **Requirements for local files:**
+        - Home Assistant must be accessible from the internet (Nabu Casa, reverse proxy, or port forwarding)
+        - Files must be placed in /config/www/ folder
+        - Supported paths: /local/, /media/, /api/
+
+        Supports Jinja2 templates.
+      required: false
+      example: "/local/camera_snapshot.jpg"
+      selector:
+        text:
+          multiple: true
+    from_number:
+      name: From Number
+      description: The Twilio phone number to send from.
+      required: true
+      selector:
+        select:
+          options: []
+          custom_value: false

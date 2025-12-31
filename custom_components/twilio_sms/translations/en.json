@@ -1,0 +1,46 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Twilio Account",
+        "description": "Enter your Twilio Account SID and Auth Token.\n\nFind your credentials at:\n- [US Console](https://console.twilio.com/us1/account/keys-credentials/api-keys)\n- [Australia Console](https://console.twilio.com/au1/account/keys-credentials/api-keys)\n- [Ireland Console](https://console.twilio.com/ie1/account/keys-credentials/api-keys)\n- [General Console](https://console.twilio.com)",
+        "data": {
+          "account_sid": "Account SID",
+          "auth_token": "Auth Token"
+        }
+      },
+      "select_numbers": {
+        "title": "Select Phone Numbers",
+        "description": "Select the Twilio phone numbers you want to use for sending SMS.",
+        "data": {
+          "phone_numbers": "Phone Numbers"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid Account SID or Auth Token",
+      "cannot_connect": "Failed to connect to Twilio",
+      "no_phone_numbers": "No phone numbers found in your Twilio account",
+      "no_selection": "Please select at least one phone number",
+      "unknown": "An unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "This Twilio account is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Twilio Phone Numbers",
+        "description": "Select the phone numbers to use for sending SMS.",
+        "data": {
+          "phone_numbers": "Phone Numbers"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Twilio",
+      "no_selection": "Please select at least one phone number"
+    }
+  }
+}
