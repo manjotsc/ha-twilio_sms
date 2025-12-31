@@ -7,8 +7,8 @@ A Home Assistant custom integration to send SMS and MMS messages via Twilio.
 ## Features
 
 - Send SMS messages to multiple recipients
-- Send MMS with media attachments (images, etc.)
-- Support for local Home Assistant files as media
+- Send MMS with media URLs (images, etc.) - Twilio fetches from the URL
+- Local file support (auto-converts `/local/` paths to external URLs)
 - Jinja2 template support for dynamic messages
 - Multiple Twilio phone numbers support
 - Easy UI-based configuration
