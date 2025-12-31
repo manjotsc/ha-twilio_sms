@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/manjotsc/ha-twilio_sms?style=for-the-badge)](LICENSE)
 
 > Send SMS and MMS messages from Home Assistant using Twilio
-
+> 
 ---
 
 ## ✨ Features
