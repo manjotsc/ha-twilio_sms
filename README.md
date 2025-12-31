@@ -54,7 +54,7 @@ Send an SMS or MMS message.
 | `target` | Yes | Phone number(s) to send to (E.164 format). Supports Jinja2 templates. |
 | `message` | Yes | Message body. Supports Jinja2 templates. |
 | `from_number` | Yes | Your Twilio phone number to send from (dropdown). |
-| `media_url` | No | URL(s) for MMS attachments. Supports local paths and Jinja2 templates. |
+| `media_url` | No | URL(s) for MMS media. Supports `/local/` paths (auto-converted to URLs) and Jinja2 templates. |
 
 ### Examples
 
@@ -108,14 +108,14 @@ data:
 #### MMS with Local Camera Snapshot
 
 ```yaml
-# First, take a snapshot
+# First, save snapshot to /config/www/ folder
 - service: camera.snapshot
   target:
     entity_id: camera.front_door
   data:
     filename: /config/www/snapshot.jpg
 
-# Then send via MMS
+# Then send via MMS using /local/ path (auto-converted to external URL)
 - service: twilio_sms.send_message
   data:
     target: "+15551234567"
@@ -148,12 +148,14 @@ automation:
         entity_id: binary_sensor.front_door_motion
         to: "on"
     action:
+      # Save snapshot to /config/www/ folder
       - service: camera.snapshot
         target:
           entity_id: camera.front_door
         data:
           filename: /config/www/motion.jpg
       - delay: "00:00:02"
+      # /local/motion.jpg is auto-converted to https://your-ha-url/local/motion.jpg
       - service: twilio_sms.send_message
         data:
           target: "+15551234567"
